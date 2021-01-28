@@ -1,0 +1,8 @@
+//
+// Created by DaviB on 28/01/2021.
+//
+
+#ifndef SOCIAL_MEDIA_FUNCTIONS_H
+#define SOCIAL_MEDIA_FUNCTIONS_H
+
+#endif //SOCIAL_MEDIA_FUNCTIONS_H

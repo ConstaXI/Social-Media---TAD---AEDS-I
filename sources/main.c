@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../headers/rede_social.h"
+#include "../headers/structs.h"
 
 int main() {
     TUsuarios user;

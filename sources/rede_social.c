@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-#include "../../headers/le.h"
+#include "../headers/rede_social.h"
 
 int le(TUsuarios *user) {
-    printf("\nDigite o nome do usuÃ¡rio: ");
+    printf("\nDigite o nome do usuário: ");
     fflush(stdin);
     fgets(user->nome, 100, stdin);
 
-    printf("\nDigite o email do usuÃ¡rio: ");
+    printf("\nDigite o email do usuário: ");
     fflush(stdin);
     fgets(user->email, 200, stdin);
 
-    printf("\nDigite o login do usuÃ¡rio: ");
+    printf("\nDigite o login do usuário: ");
     fflush(stdin);
     fgets(user->login, 50, stdin);
 
-    printf("\nDigite a senha do usuÃ¡rio: ");
+    printf("\nDigite a senha do usuário: ");
     fflush(stdin);
     fgets(user->senha, 50, stdin);
 
@@ -30,7 +30,7 @@ int le(TUsuarios *user) {
         return 1;
     }
 
-    printf("\nDigite o mÃªs: ");
+    printf("\nDigite o mês: ");
     fflush(stdin);
     scanf("%d", &user->data_de_nascimento.mes);
 
@@ -51,4 +51,15 @@ int le(TUsuarios *user) {
     }
 
     return 0;
+}
+
+void imprime(TUsuarios user) {
+    printf("\nNome: %s", user.nome);
+    printf("\nEmail: %s", user.email);
+    printf("\nLogin: %s", user.login);
+    printf("\nData de Nascimento: %d/%d/%d",
+           user.data_de_nascimento.dia,
+           user.data_de_nascimento.mes,
+           user.data_de_nascimento.ano
+    );
 }

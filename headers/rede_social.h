@@ -2,11 +2,9 @@
 // Created by DaviB on 29/01/2021.
 //
 
-#ifndef SOCIAL_MEDIA_STRUCTS_H
-#define SOCIAL_MEDIA_STRUCTS_H
+#ifndef SOCIAL_MEDIA_REDE_SOCIAL_H
+#define SOCIAL_MEDIA_REDE_SOCIAL_H
 
-#include "le.h"
-#include "imprime.h"
 
 typedef struct data {
     int dia;
@@ -31,4 +29,8 @@ typedef struct redeSocial {
                                 // também informa a quantidade de usuários cadastrados na lista
 } TRedeSocial;
 
-#endif //SOCIAL_MEDIA_STRUCTS_H
+int le(TUsuarios *user);
+void imprime(TUsuarios user);
+
+
+#endif //SOCIAL_MEDIA_REDE_SOCIAL_H

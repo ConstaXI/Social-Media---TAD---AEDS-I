@@ -2,7 +2,7 @@
 
 #include "../headers/rede_social.h"
 
-int le(TUsuarios *user) {
+void le(TUsuarios *user) {
     printf("\nDigite o nome do usuário: ");
     fflush(stdin);
     fgets(user->nome, 100, stdin);
@@ -24,33 +24,20 @@ int le(TUsuarios *user) {
     fflush(stdin);
     scanf("%d", &user->data_de_nascimento.dia);
 
-    if(user->data_de_nascimento.dia > 31 || user->data_de_nascimento.dia < 0) {
-        user->data_de_nascimento.dia = 0;
-
-        return 1;
-    }
-
     printf("\nDigite o mês: ");
     fflush(stdin);
     scanf("%d", &user->data_de_nascimento.mes);
 
-    if(user->data_de_nascimento.mes > 12 || user->data_de_nascimento.mes < 0) {
-        user->data_de_nascimento.mes = 0;
-
-        return 1;
-    }
-
     printf("\nDigite o ano: ");
     fflush(stdin);
     scanf("%d", &user->data_de_nascimento.ano);
+}
 
-    if(user->data_de_nascimento.ano > 2021 || user->data_de_nascimento.ano < 1900) {
-        user->data_de_nascimento.ano = 0;
+void cadastrar(TRedeSocial* rede, TUsuarios user) {
+    le(&user);
 
-        return 1;
-    }
-
-    return 0;
+    rede->vetor[rede->indice] = user;
+    rede->indice++;
 }
 
 void imprime(TUsuarios user) {

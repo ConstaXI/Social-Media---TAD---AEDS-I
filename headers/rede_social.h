@@ -18,19 +18,18 @@ typedef struct usuarios {
     char login[50];
     char senha[50];
     TData data_de_nascimento;
-    int ID;                     // deverá ser gerado pelo programa e igual ao índice do elemento cadastrado
-                                // no vetor (lista)
+    int ID;
 } TUsuarios;
 
 typedef struct redeSocial {
-    TUsuarios vetor[100];       // lista de usuários
-    int matrix[100][100];       // matriz de relacionamentos de amizade
-    int indice;                 // indica a posição em que o próximo elemento vai ser inserido na lista e
-                                // também informa a quantidade de usuários cadastrados na lista
+    TUsuarios vetor[100];
+    int matrix[100][100];
+    int indice;
 } TRedeSocial;
 
-int le(TUsuarios *user);
+void le(TUsuarios *user);
 void imprime(TUsuarios user);
+void cadastrar(TRedeSocial* rede, TUsuarios user);
 
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

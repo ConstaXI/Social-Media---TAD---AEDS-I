@@ -6,30 +6,31 @@
 #define SOCIAL_MEDIA_REDE_SOCIAL_H
 
 
-typedef struct data {
-    int dia;
-    int mes;
-    int ano;
-} TData;
+typedef struct date {
+    int day;
+    int month;
+    int year;
+} tdate;
 
-typedef struct usuarios {
-    char nome[100];
+typedef struct user {
+    char name[100];
     char email[200];
     char login[50];
-    char senha[50];
-    TData data_de_nascimento;
-    int ID;
-} TUsuarios;
+    char password[50];
+    tdate birth_date;
+    int id;
+} tuser;
 
-typedef struct redeSocial {
-    TUsuarios vetor[100];
+typedef struct social_media {
+    tuser array[100];
     int matrix[100][100];
-    int indice;
-} TRedeSocial;
+    int index;
+} tsocmed;
 
-void le(TUsuarios *user);
-void imprime(TUsuarios user);
-void cadastrar(TRedeSocial* rede, TUsuarios user);
+void read(tuser *user);
+void fndprt(tsocmed rede, int index);
+void prtuser(tuser user);
+void reg(tsocmed* rede, tuser user);
 
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

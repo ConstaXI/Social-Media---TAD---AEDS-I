@@ -2,10 +2,10 @@
 
 #include "../headers/rede_social.h"
 
-void le(TUsuarios *user) {
+void read(tuser *user) {
     printf("\nDigite o nome do usuário: ");
     fflush(stdin);
-    fgets(user->nome, 100, stdin);
+    fgets(user->name, 100, stdin);
 
     printf("\nDigite o email do usuário: ");
     fflush(stdin);
@@ -17,36 +17,54 @@ void le(TUsuarios *user) {
 
     printf("\nDigite a senha do usuário: ");
     fflush(stdin);
-    fgets(user->senha, 50, stdin);
+    fgets(user->password, 50, stdin);
 
     printf("\nData de Nascimento: ");
     printf("\nDigite o dia: ");
     fflush(stdin);
-    scanf("%d", &user->data_de_nascimento.dia);
+    scanf("%d", &user->birth_date.day);
 
     printf("\nDigite o mês: ");
     fflush(stdin);
-    scanf("%d", &user->data_de_nascimento.mes);
+    scanf("%d", &user->birth_date.month);
 
     printf("\nDigite o ano: ");
     fflush(stdin);
-    scanf("%d", &user->data_de_nascimento.ano);
+    scanf("%d", &user->birth_date.year);
 }
 
-void cadastrar(TRedeSocial* rede, TUsuarios user) {
-    le(&user);
+void reg(tsocmed* rede, tuser user) {
+    read(&user);
+    user.id = rede->index;
 
-    rede->vetor[rede->indice] = user;
-    rede->indice++;
+    rede->array[rede->index] = user;
+    rede->index++;
+
+    prtuser(user);
 }
 
-void imprime(TUsuarios user) {
-    printf("\nNome: %s", user.nome);
+void fndprt(tsocmed net, int index) {
+    for(int i = 0; i < net.index; i++) {
+        if (net.array[i].id == index) {
+            printf("\n\tNome: %s", net.array[i].name);
+            printf("\n\tEmail: %s", net.array[i].email);
+            printf("\n\tLogin: %s", net.array[i].login);
+            printf("\n\tData de Nascimento: %d/%d/%d\n",
+                   net.array[i].birth_date.day,
+                   net.array[i].birth_date.month,
+                   net.array[i].birth_date.year
+            );
+        }
+    }
+}
+
+void prtuser(tuser user) {
+    printf("\nNome: %s", user.name);
     printf("\nEmail: %s", user.email);
     printf("\nLogin: %s", user.login);
     printf("\nData de Nascimento: %d/%d/%d",
-           user.data_de_nascimento.dia,
-           user.data_de_nascimento.mes,
-           user.data_de_nascimento.ano
+       user.birth_date.day,
+       user.birth_date.month,
+       user.birth_date.year
     );
 }

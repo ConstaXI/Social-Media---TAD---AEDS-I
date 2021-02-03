@@ -7,31 +7,38 @@
 int main() {
     setlocale(LC_ALL, "Portuguese");
 
-    TRedeSocial rede;
-    rede.indice = 0;
+    tsocmed net;
+    net.index = 0;
 
-    TUsuarios user;
+    tuser user;
 
-    char seletor;
+    char seletor = 0;
+    int index = 0;
 
-    while (1) {
-        printf("\t\nMENU");
-        printf("\t\n1 - Registrar usuário");
-        printf("\t\n2 - Ler usuário\n");
+    while (seletor != '3') {
+
+        printf("\t\t\nMENU");
+        printf("\t\t\n1 - Registrar usuário");
+        printf("\t\t\n2 - Ler usuário");
+        printf("\t\t\n3 - Sair\n");
 
         fflush(stdin);
         scanf("%c", &seletor);
 
         switch (seletor) {
             case '1':
-                cadastrar(&rede, user);
+                reg(&net, user);
+                break;
             case '2':
-                imprime(rede.vetor[0]);
-            case '3':
-                exit(0);
+                printf("\nDigite a posição do vetor: ");
+                scanf("%d", &index);
+                fndprt(net, index);
+                break;
             default:
-                printf("\nDeu ruim\n");
+                printf("\nSaindo...\n");
         }
+
+        fflush(stdin);
     }
 
     return 0;

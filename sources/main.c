@@ -15,12 +15,13 @@ int main() {
     char seletor = 0;
     int index = 0;
 
-    while (seletor != '3') {
+    while (seletor != '4') {
 
         printf("\t\t\nMENU");
         printf("\t\t\n1 - Registrar usuário");
         printf("\t\t\n2 - Ler usuário");
-        printf("\t\t\n3 - Sair\n");
+        printf("\t\t\n3 - Iniciar Matriz de amizades");
+        printf("\t\t\n4 - Sair\n");
 
         fflush(stdin);
         scanf("%c", &seletor);
@@ -33,6 +34,10 @@ int main() {
                 printf("\nDigite a posição do vetor: ");
                 scanf("%d", &index);
                 fndprt(net, index);
+                break;
+            case '3':
+                matinit(&net);
+                matver(net);
                 break;
             default:
                 printf("\nSaindo...\n");

@@ -33,18 +33,22 @@ void read(tuser *user) {
     scanf("%d", &user->birth_date.year);
 }
 
-void reg(tsocmed* rede, tuser user) {
+void reg(tsocmed *rede, tuser user) {
     read(&user);
     user.id = rede->index;
 
-    rede->array[rede->index] = user;
-    rede->index++;
+    if (rede->index < 100) {
+        rede->array[rede->index] = user;
+        rede->index++;
 
-    prtuser(user);
+        prtuser(user);
+    } else {
+        printf("\nVetor de usuários cheio!\n");
+    }
 }
 
 void fndprt(tsocmed net, int index) {
-    for(int i = 0; i < net.index; i++) {
+    for (int i = 0; i < net.index; i++) {
         if (net.array[i].id == index) {
             printf("\n\tNome: %s", net.array[i].name);
             printf("\n\tEmail: %s", net.array[i].email);
@@ -59,12 +63,30 @@ void fndprt(tsocmed net, int index) {
 }
 
 void prtuser(tuser user) {
+    printf("\nID: %d", user.id);
     printf("\nNome: %s", user.name);
     printf("\nEmail: %s", user.email);
     printf("\nLogin: %s", user.login);
     printf("\nData de Nascimento: %d/%d/%d",
-       user.birth_date.day,
-       user.birth_date.month,
-       user.birth_date.year
+           user.birth_date.day,
+           user.birth_date.month,
+           user.birth_date.year
     );
+}
+
+void matinit(tsocmed *net) {
+    for(int i = 0; i < 100; i++) {
+        for(int j = 0; j < 100; j++) {
+            net->matrix[i][j] = 0;
+        }
+    }
+}
+
+void matver(tsocmed net) {
+    for(int i = 0; i < 100; i++) {
+        for(int j = 0; j < 100; j++) {
+            printf(" %d", net.matrix[i][j]);
+        }
+        printf("\n");
+    }
 }

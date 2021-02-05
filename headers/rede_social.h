@@ -28,9 +28,15 @@ typedef struct social_media {
 } tsocmed;
 
 void read(tuser *user);
-void fndprt(tsocmed rede, int index);
-void prtuser(tuser user);
-void reg(tsocmed* rede, tuser user);
 
+void fndprt(tsocmed rede, int index);
+
+void prtuser(tuser user);
+
+void reg(tsocmed *rede, tuser user);
+
+void matinit(tsocmed *net);
+
+void matver(tsocmed net);
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

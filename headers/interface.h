@@ -1,0 +1,10 @@
+//
+// Created by DaviB on 08/02/2021.
+//
+
+#ifndef SOCIAL_MEDIA_INTERFACE_H
+#define SOCIAL_MEDIA_INTERFACE_H
+
+
+
+#endif //SOCIAL_MEDIA_INTERFACE_H

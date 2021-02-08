@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "../headers/rede_social.h"
+
+//Pesquisar por nome e por ID
 
 void read(tuser *user) {
     printf("\nDigite o nome do usuário: ");
@@ -90,3 +93,19 @@ void matver(tsocmed net) {
         printf("\n");
     }
 }
+
+int findone(tsocmed net, tuser user) {
+    char name[100];
+
+    fflush(stdin);
+    fgets(name, 100, stdin);
+
+    for(int i = 0; i < 100; i++) {
+        if(!(strcmp(net.array[i].name, name))) {
+            return (net.array[i].id);
+        }
+    }
+
+    return -1;
+}
+

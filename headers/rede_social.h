@@ -39,4 +39,8 @@ void matinit(tsocmed *net);
 
 void matver(tsocmed net);
 
+int findone(tsocmed net, tuser user);
+
+void update(tsocmed *net, tuser user, int index);
+
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

@@ -43,4 +43,8 @@ int findone(tsocmed net, tuser user);
 
 void update(tsocmed *net, tuser user, int index);
 
+void initialize(tsocmed *net);
+
+void delete(tsocmed *net, int i);
+
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

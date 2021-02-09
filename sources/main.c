@@ -2,55 +2,39 @@
 #include <stdlib.h>
 #include <locale.h>
 
-#include "../headers/rede_social.h"
+#include "../headers/interface.h"
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
 
     tsocmed net;
-    net.index = 0;
-
+    initialize(&net);
     tuser user;
 
-    char seletor = 0;
-    int index = 0;
-    int user_id;
+    int option = 0;
 
-    while (seletor != '9') {
-
-        printf("\t\t\nMENU");
-        printf("\t\t\n1 - Registrar usuário");
-        printf("\t\t\n2 - Ler usuário");
-        printf("\t\t\n3 - Iniciar Matriz de amizades");
-        printf("\t\t\n4 - Procurar usuário pelo nome");
-        printf("\t\t\n9 - Sair\n");
-
+    do {
+        system("cls");
+        MSG_MENU();
+        printf("\n\nDigite uma opção: ");
         fflush(stdin);
-        scanf("%c", &seletor);
+        scanf("%d", &option);
 
-        switch (seletor) {
-            case '1':
-                reg(&net, user);
+        switch (option) {
+            case 1:
+                MSG_SUBMENU(option);
+                submenu_0(&net, user);
                 break;
-            case '2':
-                printf("\nDigite a posição do vetor: ");
-                scanf("%d", &index);
-                fndprt(net, index);
-                break;
-            case '3':
-                matinit(&net);
-                matver(net);
-                break;
-            case '4':
-                user_id = findone(net);
-                printf("O usuário é: %s", net.array[user_id]);
+            case 2:
+                //submenu_1(&net, user);
                 break;
             default:
-                printf("\nSaindo...\n");
+                system("cls");
+                printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+                fflush(stdin);
+                getchar();
         }
-
-        fflush(stdin);
-    }
+    } while (option != 3);
 
     return 0;
 }

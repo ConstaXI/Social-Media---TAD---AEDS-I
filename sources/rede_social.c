@@ -3,8 +3,6 @@
 
 #include "../headers/rede_social.h"
 
-//Pesquisar por nome e por ID
-
 void read(tuser *user) {
     printf("\nDigite o nome do usuário: ");
     fflush(stdin);
@@ -95,13 +93,9 @@ void matver(tsocmed net) {
 }
 
 int findone(tsocmed net, tuser user) {
-    char name[100];
-
-    fflush(stdin);
-    fgets(name, 100, stdin);
-
     for(int i = 0; i < 100; i++) {
-        if(!(strcmp(net.array[i].name, name))) {
+        if(!(strcmp(net.array[i].name, user.name))) {
+            printf("\n\t\t\tdebug/user.id: %d\n", user.id);
             return (net.array[i].id);
         }
     }
@@ -109,3 +103,23 @@ int findone(tsocmed net, tuser user) {
     return -1;
 }
 
+void initialize(tsocmed *net) {
+    net->index = 0;
+}
+
+void update(tsocmed *net, tuser user, int i) {
+    net->array[i] = user;
+}
+
+void delete(tsocmed *net, int i) {
+    net->array[i].id = -1;
+    for(int column = 0; column < net->index; column++) {
+        if (net->matrix[i][column] == 1)
+            net->matrix[i][column] = 0;
+    }
+
+    for(int line = 0; line < net->index; line++) {
+        if(net->matrix[line][i] == 1)
+            net->matrix[line][i] = 0;
+    }
+}

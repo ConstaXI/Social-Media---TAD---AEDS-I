@@ -45,6 +45,6 @@ void debuig_fndprt(tsocmed rede, int index);
 
 void debug_matver(tsocmed net);
 
-void debug_shwarr()
+void debug_shwarr(tsocmed net);
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

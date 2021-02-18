@@ -29,6 +29,9 @@ int main() {
                 MSG_SUBMENU_1(option);
                 submenu_1(&net, user);
                 break;
+            case 3:
+                MSG_DEBUG_MENU(option);
+                debug_menu(&net, user);
             default:
                 system("cls");
                 printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");

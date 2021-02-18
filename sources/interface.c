@@ -8,7 +8,8 @@ void MSG_MENU() {
     printf("\n\n\tMENU");
     printf("\n\n\t1. MÓDULO 1 - GERENCIAMENTO DE USUARIOS");
     printf("\n\t2. MÓDULO 2 - GERENCIAMENTO DE AMIZADES");
-    printf("\n\t3. SAIR");
+    printf("\n\t3. MÓDULO 3 - DEBUG");
+    printf("\n\t4. SAIR");
 }
 
 void MSG_SUBMENU_0(int module_number) {
@@ -29,6 +30,15 @@ void MSG_SUBMENU_1(int module_number) {
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n1. MOSTRAR MATRIZ DE AMIZADES");
     printf("\n\n2. PESQUISAR");
+}
+
+void MSG_DEBUG_MENU(int module_number) {
+    setlocale(LC_ALL, "Portuguese");
+    system("cls");
+    printf("\n\n\tMÓDULO %d", module_number);
+    printf("\n\n1. Procurar e Imprimir");
+    printf("\n\n2. Mostrar Matriz de Relacionamentos");
+    printf("\n\n3. Mostrar IDs no Array de Usuários");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -88,5 +98,32 @@ void submenu_1(tsocmed *net, tuser user) {
 
     switch (option) {
 
+    }
+}
+
+void debug_menu(tsocmed *net, tuser user) {
+    setlocale(LC_ALL, "Portuguese");
+
+    int option;
+
+    printf("\nDigite uma opção: ");
+    fflush(stdin);
+    scanf("%d", &option);
+
+    switch (option) {
+        case 1:
+            printf("\nDigite um ID: ");
+            int ID;
+            scanf("%d", &ID);
+            debuig_fndprt(*net, ID);
+        case 2:
+            debug_matver(*net);
+        case 3:
+            debug_shwarr(*net);
+        default:
+            system("clear");
+            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+            fflush(stdin);
+            system("PAUSE");
     }
 }

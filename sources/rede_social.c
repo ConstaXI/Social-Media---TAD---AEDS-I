@@ -50,21 +50,6 @@ void reg(tsocmed *rede, tuser user) {
     }
 }
 
-void fndprt(tsocmed net, int index) {
-    for (int i = 0; i < net.index; i++) {
-        if (net.array[i].id == index) {
-            printf("\n\tNome: %s", net.array[i].name);
-            printf("\n\tEmail: %s", net.array[i].email);
-            printf("\n\tLogin: %s", net.array[i].login);
-            printf("\n\tData de Nascimento: %d/%d/%d\n",
-                   net.array[i].birth_date.day,
-                   net.array[i].birth_date.month,
-                   net.array[i].birth_date.year
-            );
-        }
-    }
-}
-
 void prtuser(tuser user) {
     printf("\nID: %d", user.id);
     printf("\nNome: %s", user.name);
@@ -75,15 +60,6 @@ void prtuser(tuser user) {
            user.birth_date.month,
            user.birth_date.year
     );
-}
-
-void debug_matver(tsocmed net) {
-    for(int i = 0; i < net.index; i++) {
-        for(int j = 0; j < 100; j++) {
-            printf(" %d", net.matrix[i][j]);
-        }
-        printf("\n");
-    }
 }
 
 int findone(tsocmed net, tuser user) {
@@ -121,5 +97,39 @@ void delete(tsocmed *net, int i) {
     for(int line = 0; line < net->index; line++) {
         if(net->matrix[line][i] == 1)
             net->matrix[line][i] = 0;
+    }
+}
+
+//debug section
+
+void debug_fndprt(tsocmed net, int index) {
+    for (int i = 0; i < net.index; i++) {
+        if (net.array[i].id == index) {
+            printf("\n\tNome: %s", net.array[i].name);
+            printf("\n\tEmail: %s", net.array[i].email);
+            printf("\n\tLogin: %s", net.array[i].login);
+            printf("\n\tData de Nascimento: %d/%d/%d\n",
+                   net.array[i].birth_date.day,
+                   net.array[i].birth_date.month,
+                   net.array[i].birth_date.year
+            );
+        }
+    }
+}
+
+void debug_matver(tsocmed net) {
+    for(int i = 0; i < net.index; i++) {
+        for(int j = 0; j < 100; j++) {
+            printf(" %d", net.matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void debug_shwarr(tsocmed net) {
+    printf("\t\t\nDebug_shwarr: ");
+
+    for(int i = 0; i < net.index; i++) {
+        printf("%d ", net.array->id);
     }
 }

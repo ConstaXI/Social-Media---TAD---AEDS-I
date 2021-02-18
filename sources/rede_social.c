@@ -69,7 +69,7 @@ void prtuser(tuser user) {
 int findone(tsocmed net, tuser user) {
     for(int i = 0; i < net.index; i++) {
         if(!(strcmp(net.array[i].name, user.name))) {
-            printf("\n\t\t\tdebug/user.id: %d\n", user.id);
+            printf("\n\t\t\tdebug/user.id: %d\n", net.array[i].id);
             return (net.array[i].id);
         }
     }
@@ -131,8 +131,6 @@ void debug_matver(tsocmed net) {
 }
 
 void debug_shwarr(tsocmed net) {
-    system("cls");
-
     printf("\t\t\nnet.index: %d", net.index);
     printf("\t\t\nDebug_shwarr: ");
 

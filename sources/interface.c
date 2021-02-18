@@ -63,16 +63,21 @@ void submenu_0(tsocmed *net, tuser user) {
             system("PAUSE");
             break;
         case 3:
-            reg(net, user);
+            printf("\nDigite o ID do usuário que deseja alterar: ");
+            int id;
+            scanf("%d", &id);
+            read(&user);
             update(net, user, 0);
             break;
         case 4:
+            system("cls");
             printf("\nDigite o ID do usuário que deseja excluir: ");
             int delete_option;
             scanf("%d", &delete_option);
             delete(net, delete_option);
             break;
         case 5:
+            system("cls");
             prtuser(user);
             system("PAUSE");
         case 6:
@@ -81,7 +86,7 @@ void submenu_0(tsocmed *net, tuser user) {
             system("PAUSE");
             break;
         default:
-            system("clear");
+            system("cls");
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
             fflush(stdin);
             system("PAUSE");
@@ -113,14 +118,17 @@ void debug_menu(tsocmed *net, tuser user) {
 
     switch (option) {
         case 1:
+            system("cls");
             printf("\nDigite um ID: ");
             int ID;
             fflush(stdin);
             scanf("%d", &ID);
             debug_fndprt(*net, ID);
         case 2:
+            system("cls");
             debug_matver(*net);
         case 3:
+            system("cls");
             debug_shwarr(*net);
         default:
             system("cls");

@@ -41,8 +41,10 @@ void initialize(tsocmed *net);
 
 void delete(tsocmed *net, int i);
 
-void fndprt(tsocmed rede, int index);
+void debuig_fndprt(tsocmed rede, int index);
 
-void matver(tsocmed net);
+void debug_matver(tsocmed net);
+
+void debug_shwarr()
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

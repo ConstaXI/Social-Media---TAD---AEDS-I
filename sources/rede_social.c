@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../headers/rede_social.h"
@@ -43,6 +44,7 @@ void reg(tsocmed *rede, tuser user) {
         rede->index++;
 
         prtuser(user);
+        system("PAUSE");
     } else {
         printf("\nVetor de usuários cheio!\n");
     }
@@ -75,8 +77,8 @@ void prtuser(tuser user) {
     );
 }
 
-void matver(tsocmed net) {
-    for(int i = 0; i < 100; i++) {
+void debug_matver(tsocmed net) {
+    for(int i = 0; i < net.index; i++) {
         for(int j = 0; j < 100; j++) {
             printf(" %d", net.matrix[i][j]);
         }
@@ -85,7 +87,7 @@ void matver(tsocmed net) {
 }
 
 int findone(tsocmed net, tuser user) {
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < net.index; i++) {
         if(!(strcmp(net.array[i].name, user.name))) {
             printf("\n\t\t\tdebug/user.id: %d\n", user.id);
             return (net.array[i].id);

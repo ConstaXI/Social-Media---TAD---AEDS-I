@@ -36,6 +36,7 @@ void submenu_0(tsocmed *net, tuser user) {
 
     int option;
 
+    printf("\nDigite uma opção: ");
     fflush(stdin);
     scanf("%d", &option);
 
@@ -44,6 +45,10 @@ void submenu_0(tsocmed *net, tuser user) {
             reg(net, user);
             break;
         case 2:
+            system("cls");
+            printf("\nDigite o nome do usuário: ");
+            fflush(stdin);
+            fgets(user.name, 100, stdin);
             findone(*net, user);
             system("PAUSE");
             break;
@@ -52,7 +57,10 @@ void submenu_0(tsocmed *net, tuser user) {
             update(net, user, 0);
             break;
         case 4:
-            delete(net, 0);
+            printf("\nDigite o ID do usuário que deseja excluir: ");
+            int delete_option;
+            scanf("%d", &delete_option);
+            delete(net, delete_option);
             break;
         case 5:
             prtuser(user);

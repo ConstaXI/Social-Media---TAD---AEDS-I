@@ -5,6 +5,8 @@
 #include "../headers/rede_social.h"
 
 void read(tuser *user) {
+    system("cls");
+
     printf("\nDigite o nome do usuário: ");
     fflush(stdin);
     fgets(user->name, 100, stdin);
@@ -51,11 +53,13 @@ void reg(tsocmed *rede, tuser user) {
 }
 
 void prtuser(tuser user) {
+    system("cls");
+
     printf("\nID: %d", user.id);
     printf("\nNome: %s", user.name);
     printf("\nEmail: %s", user.email);
     printf("\nLogin: %s", user.login);
-    printf("\nData de Nascimento: %d/%d/%d",
+    printf("\nData de Nascimento: %d/%d/%d\n",
            user.birth_date.day,
            user.birth_date.month,
            user.birth_date.year
@@ -127,9 +131,14 @@ void debug_matver(tsocmed net) {
 }
 
 void debug_shwarr(tsocmed net) {
+    system("cls");
+
+    printf("\t\t\nnet.index: %d", net.index);
     printf("\t\t\nDebug_shwarr: ");
 
     for(int i = 0; i < net.index; i++) {
-        printf("%d ", net.array->id);
+        printf("%d ", net.array[i].id);
     }
+
+    system("PAUSE");
 }

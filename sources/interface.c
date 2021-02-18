@@ -46,7 +46,7 @@ void submenu_0(tsocmed *net, tuser user) {
 
     int option;
 
-    printf("\nDigite uma opção: ");
+    printf("\n\nDigite uma opção: ");
     fflush(stdin);
     scanf("%d", &option);
 
@@ -93,6 +93,7 @@ void submenu_1(tsocmed *net, tuser user) {
 
     int option;
 
+    printf("\n\nDigite uma opção: ");
     fflush(stdin);
     scanf("%d", &option);
 
@@ -106,7 +107,7 @@ void debug_menu(tsocmed *net, tuser user) {
 
     int option;
 
-    printf("\nDigite uma opção: ");
+    printf("\n\nDigite uma opção: ");
     fflush(stdin);
     scanf("%d", &option);
 
@@ -114,6 +115,7 @@ void debug_menu(tsocmed *net, tuser user) {
         case 1:
             printf("\nDigite um ID: ");
             int ID;
+            fflush(stdin);
             scanf("%d", &ID);
             debug_fndprt(*net, ID);
         case 2:
@@ -121,7 +123,7 @@ void debug_menu(tsocmed *net, tuser user) {
         case 3:
             debug_shwarr(*net);
         default:
-            system("clear");
+            system("cls");
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
             fflush(stdin);
             system("PAUSE");

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "rede_social.h"
+#include "friendship.h"
 
 void MSG_MENU();
 

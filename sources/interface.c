@@ -28,8 +28,7 @@ void MSG_SUBMENU_1(int module_number) {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
-    printf("\n\n\t1. MOSTRAR MATRIZ DE AMIZADES");
-    printf("\n\t2. PESQUISAR");
+    printf("\n\n\t1. FAZER AMIZADE");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -109,7 +108,21 @@ void submenu_1(tsocmed *net, tuser user) {
     scanf("%d", &option);
 
     switch (option) {
-
+        case 1:
+            system("cls");
+            int index_0, index_1;
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &index_0);
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &index_1);
+            make_friendship(net, index_0, index_1);
+            printf("AMIZADE CONCLUÍDA COM SUCESSO");
+            system("PAUSE");
+        default:
+            system("cls");
+            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+            fflush(stdin);
+            system("PAUSE");
     }
 }
 

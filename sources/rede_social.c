@@ -75,14 +75,6 @@ void prtuser(tuser user) {
     );
 }
 
-void matinit(tsocmed *net) {
-    for(int i = 0; i < 100; i++) {
-        for(int j = 0; j < 100; j++) {
-            net->matrix[i][j] = 0;
-        }
-    }
-}
-
 void matver(tsocmed net) {
     for(int i = 0; i < 100; i++) {
         for(int j = 0; j < 100; j++) {
@@ -105,6 +97,12 @@ int findone(tsocmed net, tuser user) {
 
 void initialize(tsocmed *net) {
     net->index = 0;
+
+    for(int i = 0; i < 100; i++) {
+        for(int j = 0; j < 100; j++) {
+            net->matrix[i][j] = 0;
+        }
+    }
 }
 
 void update(tsocmed *net, tuser user, int i) {

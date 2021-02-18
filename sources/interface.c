@@ -11,7 +11,7 @@ void MSG_MENU() {
     printf("\n\t3. SAIR");
 }
 
-void MSG_SUBMENU(int module_number) {
+void MSG_SUBMENU_0(int module_number) {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
@@ -21,6 +21,14 @@ void MSG_SUBMENU(int module_number) {
     printf("\n\n4. EXCLUIR");
     printf("\n\n5. IMPRIMIR");
     printf("\n\n6. SAIR");
+}
+
+void MSG_SUBMENU_1(int module_number) {
+    setlocale(LC_ALL, "Portuguese");
+    system("cls");
+    printf("\n\n\tMÓDULO %d", module_number);
+    printf("\n\n1. MOSTRAR MATRIZ DE AMIZADES");
+    printf("\n\n2. PESQUISAR");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -59,5 +67,18 @@ void submenu_0(tsocmed *net, tuser user) {
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
             fflush(stdin);
             system("PAUSE");
+    }
+}
+
+void submenu_1(tsocmed *net, tuser user) {
+    setlocale(LC_ALL, "Portuguese");
+
+    int option;
+
+    fflush(stdin);
+    scanf("%d", &option);
+
+    switch (option) {
+
     }
 }

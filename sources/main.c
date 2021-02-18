@@ -22,11 +22,12 @@ int main() {
 
         switch (option) {
             case 1:
-                MSG_SUBMENU(option);
+                MSG_SUBMENU_0(option);
                 submenu_0(&net, user);
                 break;
             case 2:
-                //submenu_1(&net, user);
+                MSG_SUBMENU_1(option);
+                submenu_1(&net, user);
                 break;
             default:
                 system("cls");

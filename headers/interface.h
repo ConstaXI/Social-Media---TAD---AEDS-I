@@ -8,7 +8,9 @@
 
 void MSG_MENU();
 
-void MSG_SUBMENU(int module_number);
+void MSG_SUBMENU_0(int module_number);
+
+void MSG_SUBMENU_1(int module_number);
 
 void submenu_0(tsocmed *net, tuser user);
 

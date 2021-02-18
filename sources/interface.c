@@ -29,6 +29,7 @@ void MSG_SUBMENU_1(int module_number) {
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n\t1. FAZER AMIZADE");
+    printf("\n\n\t2. PROCURAR USUÁRIO MAIS POPULAR");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -87,12 +88,12 @@ void submenu_0(tsocmed *net, tuser user) {
             break;
         case 6:
             system("cls");
-            printf("Exiting program...");
+            printf("Exiting program...\n");
             system("PAUSE");
             break;
         default:
             system("cls");
-            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
             fflush(stdin);
             system("PAUSE");
     }
@@ -116,11 +117,17 @@ void submenu_1(tsocmed *net, tuser user) {
             printf("\nDigite o ID do primeiro usuário: ");
             scanf("%d", &index_1);
             make_friendship(net, index_0, index_1);
-            printf("AMIZADE CONCLUÍDA COM SUCESSO");
+            printf("AMIZADE CONCLUÍDA COM SUCESSO\n");
             system("PAUSE");
+            break;
+        case 2:
+            system("cls");
+            printf("O usuário mais popular é o de ID: %d\n", find_popular(*net));
+            system("PAUSE");
+            break;
         default:
             system("cls");
-            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
             fflush(stdin);
             system("PAUSE");
     }
@@ -157,7 +164,7 @@ void debug_menu(tsocmed *net, tuser user) {
             break;
         default:
             system("cls");
-            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+            printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
             fflush(stdin);
             system("PAUSE");
     }

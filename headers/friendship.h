@@ -5,6 +5,6 @@
 
 void make_friendship(tsocmed *net, int index_0, int index_1);
 
-void find_popular(tsocmed net);
+int find_popular(tsocmed net);
 
 #endif //SOCIAL_MEDIA_FRIENDSHIP_H

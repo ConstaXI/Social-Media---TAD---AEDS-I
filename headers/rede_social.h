@@ -41,7 +41,7 @@ void initialize(tsocmed *net);
 
 void delete(tsocmed *net, int i);
 
-void debuig_fndprt(tsocmed rede, int index);
+void debug_fndprt(tsocmed rede, int index);
 
 void debug_matver(tsocmed net);
 

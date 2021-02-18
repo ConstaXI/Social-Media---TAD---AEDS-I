@@ -115,7 +115,7 @@ void debug_menu(tsocmed *net, tuser user) {
             printf("\nDigite um ID: ");
             int ID;
             scanf("%d", &ID);
-            debuig_fndprt(*net, ID);
+            debug_fndprt(*net, ID);
         case 2:
             debug_matver(*net);
         case 3:

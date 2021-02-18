@@ -16,29 +16,29 @@ void MSG_SUBMENU_0(int module_number) {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
-    printf("\n\n1. CADASTRAR");
-    printf("\n\n2. PESQUISAR");
-    printf("\n\n3. ALTERAR");
-    printf("\n\n4. EXCLUIR");
-    printf("\n\n5. IMPRIMIR");
-    printf("\n\n6. SAIR");
+    printf("\n\n\t1. CADASTRAR");
+    printf("\n\t2. PESQUISAR");
+    printf("\n\t3. ALTERAR");
+    printf("\n\t4. EXCLUIR");
+    printf("\n\t5. IMPRIMIR");
+    printf("\n\t6. SAIR");
 }
 
 void MSG_SUBMENU_1(int module_number) {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
-    printf("\n\n1. MOSTRAR MATRIZ DE AMIZADES");
-    printf("\n\n2. PESQUISAR");
+    printf("\n\n\t1. MOSTRAR MATRIZ DE AMIZADES");
+    printf("\n\t2. PESQUISAR");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
     setlocale(LC_ALL, "Portuguese");
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
-    printf("\n\n1. Procurar e Imprimir");
-    printf("\n\n2. Mostrar Matriz de Relacionamentos");
-    printf("\n\n3. Mostrar IDs no Array de Usuários");
+    printf("\n\n\t1. Procurar e Imprimir");
+    printf("\n\t2. Mostrar Matriz de Relacionamentos");
+    printf("\n\t3. Mostrar IDs no Array de Usuários");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -52,6 +52,7 @@ void submenu_0(tsocmed *net, tuser user) {
 
     switch (option) {
         case 1:
+            system("cls");
             reg(net, user);
             break;
         case 2:
@@ -63,23 +64,29 @@ void submenu_0(tsocmed *net, tuser user) {
             system("PAUSE");
             break;
         case 3:
+            system("cls");
             printf("\nDigite o ID do usuário que deseja alterar: ");
-            int id;
-            scanf("%d", &id);
+            int update_id;
+            scanf("%d", &update_id);
             read(&user);
-            update(net, user, 0);
+            update(net, user, update_id);
             break;
         case 4:
             system("cls");
             printf("\nDigite o ID do usuário que deseja excluir: ");
-            int delete_option;
-            scanf("%d", &delete_option);
-            delete(net, delete_option);
+            int delete_id;
+            scanf("%d", &delete_id);
+            delete(net, delete_id);
             break;
         case 5:
             system("cls");
+            printf("\nDigite o ID do usuário que deseja imprimir: ");
+            int id_print;
+            scanf("%d", &id_print);
+            user = finduser(*net, id_print);
             prtuser(user);
             system("PAUSE");
+            break;
         case 6:
             system("cls");
             printf("Exiting program...");
@@ -124,12 +131,15 @@ void debug_menu(tsocmed *net, tuser user) {
             fflush(stdin);
             scanf("%d", &ID);
             debug_fndprt(*net, ID);
+            break;
         case 2:
             system("cls");
             debug_matver(*net);
+            break;
         case 3:
             system("cls");
             debug_shwarr(*net);
+            break;
         default:
             system("cls");
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");

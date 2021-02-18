@@ -5,8 +5,6 @@
 #include "../headers/rede_social.h"
 
 void read(tuser *user) {
-    system("cls");
-
     printf("\nDigite o nome do usuário: ");
     fflush(stdin);
     fgets(user->name, 100, stdin);
@@ -65,6 +63,14 @@ void prtuser(tuser user) {
            user.birth_date.year
     );
 }
+
+ tuser finduser(tsocmed net, int index) {
+    for(int i = 0; i < net.index; i++) {
+        if(net.array[i].id == index) {
+            return net.array[i];
+        }
+    }
+ }
 
 int findone(tsocmed net, tuser user) {
     for(int i = 0; i < net.index; i++) {

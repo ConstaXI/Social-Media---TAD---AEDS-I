@@ -41,6 +41,8 @@ void initialize(tsocmed *net);
 
 void delete(tsocmed *net, int i);
 
+tuser finduser(tsocmed net, int index);
+
 void debug_fndprt(tsocmed rede, int index);
 
 void debug_matver(tsocmed net);

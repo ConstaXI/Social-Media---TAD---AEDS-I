@@ -83,8 +83,7 @@ void submenu_0(tsocmed *net, tuser user) {
             printf("\nDigite o ID do usuário que deseja imprimir: ");
             int id_print;
             scanf("%d", &id_print);
-            user = finduser(*net, id_print);
-            prtuser(user);
+            prtuser(finduser(*net, id_print));
             system("PAUSE");
             break;
         case 6:
@@ -131,14 +130,17 @@ void debug_menu(tsocmed *net, tuser user) {
             fflush(stdin);
             scanf("%d", &ID);
             debug_fndprt(*net, ID);
+            system("PAUSE");
             break;
         case 2:
             system("cls");
             debug_matver(*net);
+            system("PAUSE");
             break;
         case 3:
             system("cls");
             debug_shwarr(*net);
+            system("PAUSE");
             break;
         default:
             system("cls");

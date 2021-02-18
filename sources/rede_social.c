@@ -64,17 +64,17 @@ void prtuser(tuser user) {
     );
 }
 
- tuser finduser(tsocmed net, int index) {
-    for(int i = 0; i < net.index; i++) {
-        if(net.array[i].id == index) {
+tuser finduser(tsocmed net, int index) {
+    for (int i = 0; i < net.index; i++) {
+        if (net.array[i].id == index) {
             return net.array[i];
         }
     }
- }
+}
 
 int findone(tsocmed net, tuser user) {
-    for(int i = 0; i < net.index; i++) {
-        if(!(strcmp(net.array[i].name, user.name))) {
+    for (int i = 0; i < net.index; i++) {
+        if (!(strcmp(net.array[i].name, user.name))) {
             printf("\n\t\t\tdebug/user.id: %d\n", net.array[i].id);
             return (net.array[i].id);
         }
@@ -86,27 +86,28 @@ int findone(tsocmed net, tuser user) {
 void initialize(tsocmed *net) {
     net->index = 0;
 
-    for(int i = 0; i < 100; i++) {
-        for(int j = 0; j < 100; j++) {
+    for (int i = 0; i < 100; i++) {
+        for (int j = 0; j < 100; j++) {
             net->matrix[i][j] = 0;
         }
     }
 }
 
-void update(tsocmed *net, tuser user, int i) {
-    net->array[i] = user;
+void update(tsocmed *net, tuser user, int index) {
+    user.id = index;
+    net->array[index] = user;
 }
 
-void delete(tsocmed *net, int i) {
-    net->array[i].id = -1;
-    for(int column = 0; column < net->index; column++) {
-        if (net->matrix[i][column] == 1)
-            net->matrix[i][column] = 0;
+void delete(tsocmed *net, int index) {
+    net->array[index].id = -1;
+    for (int column = 0; column < net->index; column++) {
+        if (net->matrix[index][column] == 1)
+            net->matrix[index][column] = 0;
     }
 
-    for(int line = 0; line < net->index; line++) {
-        if(net->matrix[line][i] == 1)
-            net->matrix[line][i] = 0;
+    for (int line = 0; line < net->index; line++) {
+        if (net->matrix[line][index] == 1)
+            net->matrix[line][index] = 0;
     }
 }
 
@@ -128,8 +129,8 @@ void debug_fndprt(tsocmed net, int index) {
 }
 
 void debug_matver(tsocmed net) {
-    for(int i = 0; i < net.index; i++) {
-        for(int j = 0; j < 100; j++) {
+    for (int i = 0; i < net.index; i++) {
+        for (int j = 0; j < net.index; j++) {
             printf(" %d", net.matrix[i][j]);
         }
         printf("\n");
@@ -140,9 +141,7 @@ void debug_shwarr(tsocmed net) {
     printf("\t\t\nnet.index: %d", net.index);
     printf("\t\t\nDebug_shwarr: ");
 
-    for(int i = 0; i < net.index; i++) {
+    for (int i = 0; i < net.index; i++) {
         printf("%d ", net.array[i].id);
     }
-
-    system("PAUSE");
 }

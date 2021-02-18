@@ -38,7 +38,7 @@ int main() {
                 fflush(stdin);
                 system("PAUSE");
         }
-    } while (option != 3);
+    } while (option != 4);
 
     return 0;
 }

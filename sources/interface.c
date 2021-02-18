@@ -37,7 +37,7 @@ void submenu_0(tsocmed *net, tuser user) {
             break;
         case 2:
             findone(*net, user);
-            getchar();
+            system("PAUSE");
             break;
         case 3:
             reg(net, user);
@@ -48,16 +48,16 @@ void submenu_0(tsocmed *net, tuser user) {
             break;
         case 5:
             prtuser(user);
-            getchar();
+            system("PAUSE");
         case 6:
             system("cls");
             printf("Exiting program...");
-            getchar();
+            system("PAUSE");
             break;
         default:
             system("clear");
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
             fflush(stdin);
-            getchar();
+            system("PAUSE");
     }
 }

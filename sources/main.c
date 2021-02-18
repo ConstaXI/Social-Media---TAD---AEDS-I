@@ -32,7 +32,7 @@ int main() {
                 system("cls");
                 printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
                 fflush(stdin);
-                getchar();
+                system("PAUSE");
         }
     } while (option != 3);
 

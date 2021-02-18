@@ -129,8 +129,8 @@ void debug_fndprt(tsocmed net, int index) {
 }
 
 void debug_matver(tsocmed net) {
-    for (int i = 0; i < net.index; i++) {
-        for (int j = 0; j < net.index; j++) {
+    for (int i = 0; i < net.index - 1; i++) {
+        for (int j = 0; j < net.index - 1; j++) {
             printf(" %d", net.matrix[i][j]);
         }
         printf("\n");
@@ -144,4 +144,16 @@ void debug_shwarr(tsocmed net) {
     for (int i = 0; i < net.index; i++) {
         printf("%d ", net.array[i].id);
     }
+}
+
+void debug_regrandom(tsocmed *net) {
+    for(int i = 0; i < 10; i++) {
+        net->array[i].id = i;
+        strcpy(net->array[i].name, "name_test");
+        strcpy(net->array[i].email, "email_test");
+        strcpy(net->array[i].password, "password_test");
+        strcpy(net->array[i].login, "login_test");
+    }
+
+    net->index = 10;
 }

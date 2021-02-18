@@ -32,6 +32,7 @@ int main() {
             case 3:
                 MSG_DEBUG_MENU(option);
                 debug_menu(&net, user);
+                break;
             default:
                 system("cls");
                 printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");

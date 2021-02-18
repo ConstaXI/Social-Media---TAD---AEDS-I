@@ -29,7 +29,7 @@ void MSG_SUBMENU_1(int module_number) {
     system("cls");
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n\t1. FAZER AMIZADE");
-    printf("\n\n\t2. PROCURAR USUÁRIO MAIS POPULAR");
+    printf("\n\t2. PROCURAR USUÁRIO MAIS POPULAR");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -39,6 +39,7 @@ void MSG_DEBUG_MENU(int module_number) {
     printf("\n\n\t1. Procurar e Imprimir");
     printf("\n\t2. Mostrar Matriz de Relacionamentos");
     printf("\n\t3. Mostrar IDs no Array de Usuários");
+    printf("\n\t4. Gerar usuários aleatórios");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -122,7 +123,7 @@ void submenu_1(tsocmed *net, tuser user) {
             break;
         case 2:
             system("cls");
-            printf("O usuário mais popular é o de ID: %d\n", find_popular(*net));
+            printf("\nO usuário mais popular é o de ID: %d\n", find_popular(*net));
             system("PAUSE");
             break;
         default:
@@ -160,6 +161,12 @@ void debug_menu(tsocmed *net, tuser user) {
         case 3:
             system("cls");
             debug_shwarr(*net);
+            system("PAUSE");
+            break;
+        case 4:
+            system("cls");
+            debug_regrandom(net);
+            printf("\nUsuários gerados aleatoriamente\n");
             system("PAUSE");
             break;
         default:

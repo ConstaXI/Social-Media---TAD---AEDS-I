@@ -43,10 +43,14 @@ void delete(tsocmed *net, int i);
 
 tuser finduser(tsocmed net, int index);
 
+//debug stuff
+
 void debug_fndprt(tsocmed rede, int index);
 
 void debug_matver(tsocmed net);
 
 void debug_shwarr(tsocmed net);
+
+void debug_regrandom(tsocmed *net);
 
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

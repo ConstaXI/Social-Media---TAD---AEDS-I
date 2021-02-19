@@ -33,6 +33,7 @@ void MSG_SUBMENU_1(int module_number) {
     printf("\n\t3. VERIFICAR AMIZADE");
     printf("\n\t4. DELETAR AMIZADE");
     printf("\n\t5. IMPRIMIR AMIGOS");
+    printf("\n\t6. CONTAR AMIGOS EM COMUM");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -167,6 +168,20 @@ void submenu_1(tsocmed *net, tuser user) {
             fflush(stdin);
             scanf("%d", &prtfrds_id);
             prtfrds(*net, finduser(*net, prtfrds_id));
+            system("PAUSE");
+            break;
+        case 6:
+            system("cls");
+            int mut_index_0, mut_index_1;
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &mut_index_0);
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &mut_index_1);
+            printf("\nOs usuários com ID de %d e %d tem %d amigos em comum.\n",
+                mut_index_0,
+                mut_index_1,
+                find_mutual_friends(*net, mut_index_0, mut_index_1)
+            );
             system("PAUSE");
             break;
         default:

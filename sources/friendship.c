@@ -40,11 +40,11 @@ int verfrdshp(tsocmed net, char name_0[100], char name_1[100]) {
     tuser user_0, user_1;
 
     for (int i = 0; i < net.index; i++) {
-        if(!strcmp(name_0, net.array[i].name)) {
+        if (!strcmp(name_0, net.array[i].name)) {
             user_0 = net.array[i];
         }
 
-        if(!strcmp(name_1, net.array[i].name)) {
+        if (!strcmp(name_1, net.array[i].name)) {
             user_1 = net.array[i];
         }
     }
@@ -66,8 +66,8 @@ void delfrd(tsocmed *net, int index_0, int index_1) {
 }
 
 void prtfrds(tsocmed net, tuser user) {
-    for(int i = 0; i < net.index; i++) {
-        if(net.matrix[user.id][i]) {
+    for (int i = 0; i < net.index; i++) {
+        if (net.matrix[user.id][i]) {
             prtuser(net.array[i]);
         }
     }
@@ -75,20 +75,29 @@ void prtfrds(tsocmed net, tuser user) {
 
 int find_mutual_friends(tsocmed net, int index_0, int index_1) {
     tuser user_0, user_1;
+    int count = 0;
 
     for (int i = 0; i < net.index; i++) {
-        if(net.index == index_0) {
+        if (net.array[i].id == index_0) {
             user_0 = net.array[i];
         }
 
-        if(net.index == index_1) {
+        if (net.array[i].id == index_1) {
             user_1 = net.array[i];
         }
     }
 
-    if(verfrdshp(net, user_0.name, user_1.name)) {
-
-    } else {
-        printf("\nOs usuários não são amigos\n");
+    if (verfrdshp(net, user_0.name, user_1.name)) {
+        return -1;
     }
+
+    for (int i = 0; i < net.index; i++) {
+        if ((net.matrix[user_0.id][i] == net.matrix[user_1.id][i])
+            && net.matrix[user_0.id][i] != 0
+            && net.matrix[user_1.id][i] != 0) {
+            count++;
+        }
+    }
+
+    return count;
 }

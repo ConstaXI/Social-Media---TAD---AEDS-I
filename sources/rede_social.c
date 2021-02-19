@@ -37,7 +37,10 @@ void read(tuser *user) {
 
 void reg(tsocmed *rede, tuser user) {
     read(&user);
+
     user.id = rede->index;
+
+    system("cls");
 
     if (rede->index < 100) {
         rede->array[rede->index] = user;
@@ -51,8 +54,6 @@ void reg(tsocmed *rede, tuser user) {
 }
 
 void prtuser(tuser user) {
-    system("cls");
-
     printf("\nID: %d", user.id);
     printf("\nNome: %s", user.name);
     printf("\nEmail: %s", user.email);
@@ -129,10 +130,11 @@ void debug_fndprt(tsocmed net, int index) {
 }
 
 void debug_matver(tsocmed net) {
-    for (int i = 0; i < net.index - 1; i++) {
-        for (int j = 0; j < net.index - 1; j++) {
+    for (int i = 0; i < net.index; i++) {
+        for (int j = 0; j < net.index; j++) {
             printf(" %d", net.matrix[i][j]);
         }
+
         printf("\n");
     }
 }
@@ -147,7 +149,7 @@ void debug_shwarr(tsocmed net) {
 }
 
 void debug_regrandom(tsocmed *net) {
-    for(int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         net->array[i].id = i;
         strcpy(net->array[i].name, "name_test");
         strcpy(net->array[i].email, "email_test");
@@ -155,5 +157,5 @@ void debug_regrandom(tsocmed *net) {
         strcpy(net->array[i].login, "login_test");
     }
 
-    net->index = 10;
+    net->index = 9;
 }

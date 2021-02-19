@@ -30,11 +30,16 @@ void MSG_SUBMENU_1(int module_number) {
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n\t1. FAZER AMIZADE");
     printf("\n\t2. PROCURAR USUÁRIO MAIS POPULAR");
+    printf("\n\t3. VERIFICAR AMIZADE");
+    printf("\n\t4. DELETAR AMIZADE");
+    printf("\n\t5. IMPRIMIR AMIGOS");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
     setlocale(LC_ALL, "Portuguese");
+
     system("cls");
+
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n\t1. Procurar e Imprimir");
     printf("\n\t2. Mostrar Matriz de Relacionamentos");
@@ -118,12 +123,50 @@ void submenu_1(tsocmed *net, tuser user) {
             printf("\nDigite o ID do primeiro usuário: ");
             scanf("%d", &index_1);
             make_friendship(net, index_0, index_1);
-            printf("AMIZADE CONCLUÍDA COM SUCESSO\n");
+            printf("\nAMIZADE CONCLUÍDA COM SUCESSO\n");
             system("PAUSE");
             break;
         case 2:
             system("cls");
             printf("\nO usuário mais popular é o de ID: %d\n", find_popular(*net));
+            system("PAUSE");
+            break;
+        case 3:
+            system("cls");
+            char name_0[100], name_1[100];
+
+            printf("\nDigite o primeiro nome: ");
+            fflush(stdin);
+            fgets(name_0, 100, stdin);
+
+            printf("\nDigite o segundo nome: ");
+            fflush(stdin);
+            fgets(name_1, 100, stdin);
+            if(verfrdshp(*net, name_0, name_1)) {
+                printf("\nOs usuários são amigos\n");
+            } else {
+                printf("\nos usuários não são amigos\n");
+            }
+            system("PAUSE");
+            break;
+        case 4:
+            system("cls");
+            int del_index_0, del_index_1;
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &del_index_0);
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &del_index_1);
+            delfrd(net, del_index_0, del_index_1);
+            printf("\nAMIZADE DELETADA COM SUCESSO\n");
+            system("PAUSE");
+            break;
+        case 5:
+            system("cls");
+            int prtfrds_id;
+            printf("\nDigite o ID do usuário: ");
+            fflush(stdin);
+            scanf("%d", &prtfrds_id);
+            prtfrds(*net, finduser(*net, prtfrds_id));
             system("PAUSE");
             break;
         default:

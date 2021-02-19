@@ -38,6 +38,7 @@ void MSG_SUBMENU_1(int module_number) {
     printf("\n\t6. CONTAR AMIGOS EM COMUM");
     printf("\n\t7. PROCURAR USUÁRIOS SOLITÁRIOS");
     printf("\n\t8. PROCURAR AMIGO EM COMUM");
+    printf("\n\t9. PROCURAR AMIGOS EM COMUM");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -207,6 +208,22 @@ void submenu_1(tsocmed *net, tuser user) {
                    rel_index_0,
                    rel_index_1,
                    fndrel(*net, rel_index_0, rel_index_1)
+            );
+            system("PAUSE");
+            break;
+            case 9:
+            system("cls");
+            int relp_index_0, relp_index_1;
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &relp_index_0);
+            printf("\nDigite o ID do primeiro usuário: ");
+            scanf("%d", &relp_index_1);
+            int *relp = fndrelp(*net, relp_index_0, relp_index_1);
+            printf("\nOs usuários com ID de %d e %d têm os usuários com ID %d e %d como amigos em comum.\n",
+                   relp_index_0,
+                   relp_index_1,
+                   relp[0],
+                   relp[1]
             );
             system("PAUSE");
             break;

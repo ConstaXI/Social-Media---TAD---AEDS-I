@@ -19,4 +19,6 @@ void fndsol(tsocmed *net);
 
 int fndrel(tsocmed net, int index_0, int index_1);
 
+int *fndrelp(tsocmed net, int index_0, int index_1);
+
 #endif //SOCIAL_MEDIA_FRIENDSHIP_H

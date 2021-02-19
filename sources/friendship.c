@@ -142,3 +142,32 @@ int fndrel(tsocmed net, int index_0, int index_1) {
 
     return -1;
 }
+
+int *fndrelp(tsocmed net, int index_0, int index_1) {
+    tuser user_0 = finduser(net, index_0);
+    tuser user_1 = finduser(net, index_1);
+
+    static int micro_index[2];
+
+    if (verfrdshp(net, user_0.name, user_1.name)) {
+        return NULL;
+    }
+
+    for (int i = 0; i < net.index; i++) {
+        if ((net.matrix[user_0.id][i] == net.matrix[user_1.id][i])
+            && net.matrix[user_0.id][i] != 0
+            && net.matrix[user_1.id][i] != 0) {
+            micro_index[0] = i;
+        }
+    }
+
+    for (int i = 0; i < net.index; i++) {
+        if ((net.matrix[user_0.id][i] == net.matrix[user_1.id][i])
+            && net.matrix[user_0.id][i] != 0
+            && net.matrix[user_1.id][i] != 0) {
+            micro_index[1] = i;
+        }
+    }
+
+    return micro_index;
+}

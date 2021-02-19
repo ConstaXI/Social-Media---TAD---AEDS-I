@@ -35,7 +35,7 @@ int main() {
                 break;
             default:
                 system("cls");
-                printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.");
+                printf("\n\n\n\tMSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
                 fflush(stdin);
                 system("PAUSE");
         }

@@ -23,7 +23,9 @@ typedef struct user {
 
 typedef struct social_media {
     tuser array[100];
+    tuser solitude[2];
     int matrix[100][100];
+    int gntdmat[100][100];
     int index;
 } tsocmed;
 
@@ -43,7 +45,11 @@ void delete(tsocmed *net, int i);
 
 tuser finduser(tsocmed net, int index);
 
+void fill_gntdmat(tsocmed *net);
+
 //debug stuff
+
+void debug_prt_gntdmat(tsocmed net);
 
 void debug_fndprt(tsocmed rede, int index);
 

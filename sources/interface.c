@@ -26,7 +26,9 @@ void MSG_SUBMENU_0(int module_number) {
 
 void MSG_SUBMENU_1(int module_number) {
     setlocale(LC_ALL, "Portuguese");
+
     system("cls");
+
     printf("\n\n\tMÓDULO %d", module_number);
     printf("\n\n\t1. FAZER AMIZADE");
     printf("\n\t2. PROCURAR USUÁRIO MAIS POPULAR");
@@ -34,6 +36,7 @@ void MSG_SUBMENU_1(int module_number) {
     printf("\n\t4. DELETAR AMIZADE");
     printf("\n\t5. IMPRIMIR AMIGOS");
     printf("\n\t6. CONTAR AMIGOS EM COMUM");
+    printf("\n\t7. PROCURAR USUÁRIOS SOLITÁRIOS");
 }
 
 void MSG_DEBUG_MENU(int module_number) {
@@ -47,6 +50,8 @@ void MSG_DEBUG_MENU(int module_number) {
     printf("\n\t3. Mostrar IDs no Array de Usuários");
     printf("\n\t4. Gerar usuários aleatórios");
     printf("\n\t5. Gerar Matriz de Relacionamentos");
+    printf("\n\t6. Gerar Matriz de Amizades em Comum");
+    printf("\n\t7. Imprimir Matriz de Amizades em Comum");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -185,6 +190,11 @@ void submenu_1(tsocmed *net, tuser user) {
             );
             system("PAUSE");
             break;
+        case 7:
+            system("cls");
+            fndsol(net);
+            system("PAUSE");
+            break;
         default:
             system("cls");
             printf("\n\n\n\t MSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
@@ -232,6 +242,16 @@ void debug_menu(tsocmed *net, tuser user) {
             system("cls");
             debug_matrandom(net);
             printf("\nMatriz de Relacionamentos inicializada com valores aleatórios\n");
+            system("PAUSE");
+            break;
+        case 6:
+            system("cls");
+            fill_gntdmat(net);
+            system("PAUSE");
+            break;
+        case 7:
+            system("cls");
+            debug_prt_gntdmat(*net);
             system("PAUSE");
             break;
         default:

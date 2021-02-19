@@ -4,8 +4,7 @@
 #include <time.h>
 
 #include "../headers/rede_social.h"
-
-#define MAX_RANGE 1
+#include "../headers/friendship.h"
 
 void read(tuser *user) {
     printf("\nDigite o nome do usuário: ");
@@ -115,7 +114,26 @@ void delete(tsocmed *net, int index) {
     }
 }
 
+void fill_gntdmat(tsocmed *net) {
+    for(int i = 0; i < net->index; i++) {
+        for(int j = 0; i > j; j++) {
+            net->gntdmat[i][j] = find_mutual_friends(*net, i, j);
+            net->gntdmat[j][i] = net->gntdmat[i][j];
+        }
+    }
+}
+
 //debug section
+
+void debug_prt_gntdmat(tsocmed net) {
+    for(int i = 0; i < net.index; i++) {
+        for(int j = 0; j < net.index; j++) {
+            printf("%d ", net.gntdmat[i][j]);
+        }
+
+        printf("\n");
+    }
+}
 
 void debug_fndprt(tsocmed net, int index) {
     for (int i = 0; i < net.index; i++) {

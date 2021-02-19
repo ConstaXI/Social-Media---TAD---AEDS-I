@@ -15,4 +15,8 @@ void delfrd(tsocmed *net, int index_0, int index_1);
 
 void prtfrds(tsocmed net, tuser user);
 
+void fndsol(tsocmed *net);
+
+void fndrel(tsocmed net);
+
 #endif //SOCIAL_MEDIA_FRIENDSHIP_H

@@ -88,7 +88,7 @@ int find_mutual_friends(tsocmed net, int index_0, int index_1) {
     }
 
     if (verfrdshp(net, user_0.name, user_1.name)) {
-        return -1;
+        return 0;
     }
 
     for (int i = 0; i < net.index; i++) {
@@ -100,4 +100,27 @@ int find_mutual_friends(tsocmed net, int index_0, int index_1) {
     }
 
     return count;
+}
+
+void fndsol(tsocmed *net) {
+    int index = 0;
+
+    for (int i = 0; i < net->index; ++i) {
+        for (int j = 0; i > j; ++j) {
+            if (net->gntdmat[i][j] == 0) {
+                net->solitude[index] = finduser(*net, i);
+                index++;
+
+                if (index == 1) {
+                    break;
+                }
+            }
+        }
+    }
+    prtuser(net->solitude[0]);
+    prtuser(net->solitude[1]);
+}
+
+void fndrel(tsocmed net) {
+
 }

@@ -53,4 +53,6 @@ void debug_shwarr(tsocmed net);
 
 void debug_regrandom(tsocmed *net);
 
+void debug_matrandom(tsocmed *net);
+
 #endif //SOCIAL_MEDIA_REDE_SOCIAL_H

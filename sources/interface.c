@@ -46,6 +46,7 @@ void MSG_DEBUG_MENU(int module_number) {
     printf("\n\t2. Mostrar Matriz de Relacionamentos");
     printf("\n\t3. Mostrar IDs no Array de Usuários");
     printf("\n\t4. Gerar usuários aleatórios");
+    printf("\n\t5. Gerar Matriz de Relacionamentos");
 }
 
 void submenu_0(tsocmed *net, tuser user) {
@@ -225,6 +226,12 @@ void debug_menu(tsocmed *net, tuser user) {
             system("cls");
             debug_regrandom(net);
             printf("\nUsuários gerados aleatoriamente\n");
+            system("PAUSE");
+            break;
+        case 5:
+            system("cls");
+            debug_matrandom(net);
+            printf("\nMatriz de Relacionamentos inicializada com valores aleatórios\n");
             system("PAUSE");
             break;
         default:

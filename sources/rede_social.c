@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "../headers/rede_social.h"
+
+#define MAX_RANGE 1
 
 void read(tuser *user) {
     printf("\nDigite o nome do usuário: ");
@@ -157,5 +160,16 @@ void debug_regrandom(tsocmed *net) {
         strcpy(net->array[i].login, "login_test");
     }
 
-    net->index = 9;
+    net->index = 10;
+}
+
+void debug_matrandom(tsocmed *net) {
+    srand(time(NULL));
+
+    for(int i = 0; i < net->index; i++) {
+        for(int j = 0; i > j; j++) {
+            net->matrix[i][j] = (rand() % (1 - 0 + 1)) + 0;
+            net->matrix[j][i] = net->matrix[i][j];
+        }
+    }
 }

@@ -43,7 +43,9 @@ int verfrdshp(tsocmed net, char name_0[100], char name_1[100]) {
         if (!strcmp(name_0, net.array[i].name)) {
             user_0 = net.array[i];
         }
+    }
 
+    for (int i = 0; i < net.index; i++) {
         if (!strcmp(name_1, net.array[i].name)) {
             user_1 = net.array[i];
         }
@@ -117,10 +119,26 @@ void fndsol(tsocmed *net) {
             }
         }
     }
+
     prtuser(net->solitude[0]);
     prtuser(net->solitude[1]);
 }
 
-void fndrel(tsocmed net) {
+int fndrel(tsocmed net, int index_0, int index_1) {
+    tuser user_0 = finduser(net, index_0);
+    tuser user_1 = finduser(net, index_1);
 
+    if (verfrdshp(net, user_0.name, user_1.name)) {
+        return -1;
+    }
+
+    for (int i = 0; i < net.index; i++) {
+        if ((net.matrix[user_0.id][i] == net.matrix[user_1.id][i])
+            && net.matrix[user_0.id][i] != 0
+            && net.matrix[user_1.id][i] != 0) {
+            return i;
+        }
+    }
+
+    return -1;
 }

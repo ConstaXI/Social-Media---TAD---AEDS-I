@@ -185,7 +185,7 @@ void submenu_1(tsocmed *net, tuser user) {
             printf("\nDigite o segundo nome: ");
             fflush(stdin);
             fgets(name_1, 100, stdin);
-            if(verfrdshp(*net, name_0, name_1)) {
+            if (verfrdshp(*net, name_0, name_1)) {
                 printf("\nOs usuários são amigos\n");
             } else {
                 printf("\nos usuários não são amigos\n");
@@ -220,9 +220,9 @@ void submenu_1(tsocmed *net, tuser user) {
             printf("\nDigite o ID do primeiro usuário: ");
             scanf("%d", &mut_index_1);
             printf("\nOs usuários com ID de %d e %d tem %d amigos em comum.\n",
-                mut_index_0,
-                mut_index_1,
-                find_mutual_friends(*net, mut_index_0, mut_index_1)
+                   mut_index_0,
+                   mut_index_1,
+                   find_mutual_friends(*net, mut_index_0, mut_index_1)
             );
             system("PAUSE");
             break;
@@ -245,7 +245,7 @@ void submenu_1(tsocmed *net, tuser user) {
             );
             system("PAUSE");
             break;
-            case 9:
+        case 9:
             system("cls");
             int relp_index_0, relp_index_1;
             printf("\nDigite o ID do primeiro usuário: ");

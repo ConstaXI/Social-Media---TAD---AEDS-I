@@ -78,7 +78,7 @@ tuser finduser(tsocmed net, int index) {
 int findone(tsocmed net, tuser user) {
     for (int i = 0; i < net.index; i++) {
         if (!(strcmp(net.array[i].name, user.name))) {
-            printf("\n\t\t\tdebug/user.id: %d\n", net.array[i].id);
+            printf("\nuser.id: %d\n", net.array[i].id);
             return (net.array[i].id);
         }
     }

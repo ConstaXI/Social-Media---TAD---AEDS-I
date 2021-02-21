@@ -56,6 +56,40 @@ void MSG_DEBUG_MENU(int module_number) {
     printf("\n\t7. Imprimir Matriz de Amizades em Comum");
 }
 
+void main_menu(tsocmed *net, tuser user) {
+    setlocale(LC_ALL, "Portuguese");
+
+    int option = 0;
+
+    do {
+        system("cls");
+        MSG_MENU();
+        printf("\n\nDigite uma opção: ");
+        fflush(stdin);
+        scanf("%d", &option);
+
+        switch (option) {
+            case 1:
+                MSG_SUBMENU_0(option);
+                submenu_0(net, user);
+                break;
+            case 2:
+                MSG_SUBMENU_1(option);
+                submenu_1(net, user);
+                break;
+            case 3:
+                MSG_DEBUG_MENU(option);
+                debug_menu(net, user);
+                break;
+            default:
+                system("cls");
+                printf("\n\n\n\tMSG: DIGITE UMA OPÇÃO VÁLIDA.\n");
+                fflush(stdin);
+                system("PAUSE");
+        }
+    } while (option != 4);
+}
+
 void submenu_0(tsocmed *net, tuser user) {
     setlocale(LC_ALL, "Portuguese");
 

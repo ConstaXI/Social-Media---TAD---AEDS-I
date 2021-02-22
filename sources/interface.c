@@ -152,6 +152,7 @@ void submenu_1(tsocmed *net, tuser user) {
     setlocale(LC_ALL, "Portuguese");
 
     int option;
+    int user_id_0, user_id_1;
 
     printf("\n\nDigite uma opção: ");
     fflush(stdin);
@@ -160,12 +161,11 @@ void submenu_1(tsocmed *net, tuser user) {
     switch (option) {
         case 1:
             system("cls");
-            int index_0, index_1;
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &index_0);
+            scanf("%d", &user_id_0);
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &index_1);
-            make_friendship(net, index_0, index_1);
+            scanf("%d", &user_id_1);
+            make_friendship(net, user_id_0, user_id_1);
             printf("\nAMIZADE CONCLUÍDA COM SUCESSO\n");
             system("PAUSE");
             break;
@@ -194,12 +194,11 @@ void submenu_1(tsocmed *net, tuser user) {
             break;
         case 4:
             system("cls");
-            int del_index_0, del_index_1;
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &del_index_0);
+            scanf("%d", &user_id_0);
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &del_index_1);
-            delfrd(net, del_index_0, del_index_1);
+            scanf("%d", &user_id_1);
+            delfrd(net, user_id_0, user_id_1);
             printf("\nAMIZADE DELETADA COM SUCESSO\n");
             system("PAUSE");
             break;
@@ -214,15 +213,14 @@ void submenu_1(tsocmed *net, tuser user) {
             break;
         case 6:
             system("cls");
-            int mut_index_0, mut_index_1;
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &mut_index_0);
+            scanf("%d", &user_id_0);
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &mut_index_1);
+            scanf("%d", &user_id_1);
             printf("\nOs usuários com ID de %d e %d tem %d amigos em comum.\n",
-                   mut_index_0,
-                   mut_index_1,
-                   find_mutual_friends(*net, mut_index_0, mut_index_1)
+                   user_id_0,
+                   user_id_1,
+                   find_mutual_friends(*net, user_id_0, user_id_1)
             );
             system("PAUSE");
             break;
@@ -233,29 +231,35 @@ void submenu_1(tsocmed *net, tuser user) {
             break;
         case 8:
             system("cls");
-            int rel_index_0, rel_index_1;
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &rel_index_0);
+            scanf("%d", &user_id_0);
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &rel_index_1);
+            scanf("%d", &user_id_1);
             printf("\nOs usuários com ID de %d e %d tem o usuário com ID %d como amigo em comum.\n",
-                   rel_index_0,
-                   rel_index_1,
-                   fndrel(*net, rel_index_0, rel_index_1)
+                   user_id_0,
+                   user_id_1,
+                   fndrel(*net, user_id_0, user_id_1)
             );
             system("PAUSE");
             break;
         case 9:
             system("cls");
-            int relp_index_0, relp_index_1;
+            printf("\nO ID dos usuários tem que ter 3 unidades de distância, ex: 1 e 4.\n");
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &relp_index_0);
+            scanf("%d", &user_id_0);
             printf("\nDigite o ID do primeiro usuário: ");
-            scanf("%d", &relp_index_1);
-            int *relp = fndrelp(*net, relp_index_0, relp_index_1);
+            scanf("%d", &user_id_1);
+            int *relp = fndrelp(*net, user_id_0, user_id_1);
+
+            if(relp == NULL) {
+                printf("\nOcorreu um erro, tente novamente\n");
+                system("PAUSE");
+                break;
+            }
+
             printf("\nOs usuários com ID de %d e %d têm os usuários com ID %d e %d como amigos em comum.\n",
-                   relp_index_0,
-                   relp_index_1,
+                   user_id_0,
+                   user_id_1,
                    relp[0],
                    relp[1]
             );

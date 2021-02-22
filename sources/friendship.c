@@ -147,7 +147,7 @@ int *fndrelp(tsocmed net, int index_0, int index_1) {
     tuser user_0 = finduser(net, index_0);
     tuser user_1 = finduser(net, index_1);
 
-    static int micro_index[2];
+    static int index[2];
 
     if (verfrdshp(net, user_0.name, user_1.name)) {
         return NULL;
@@ -161,16 +161,20 @@ int *fndrelp(tsocmed net, int index_0, int index_1) {
         index_1 = temp;
     }
 
+    if (index_0 + 3 != index_1) {
+        return NULL;
+    }
+
     if (verfrdshp(net, user_0.name, user_1.name)) {
         return NULL;
     }
 
     if (net.matrix[index_1 - 1][index_0 + 1] && net.matrix[index_1 - 3][index_0 + 1]) {
-        micro_index[0] = index_0 + 1;
-        micro_index[1] = index_0 + 2;
+        index[0] = index_0 + 1;
+        index[1] = index_0 + 2;
     } else {
         return NULL;
     }
 
-    return micro_index;
+    return index;
 }
